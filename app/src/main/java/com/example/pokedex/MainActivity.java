@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
@@ -261,10 +262,14 @@ public class MainActivity extends AppCompatActivity {
             addToTeamButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.d("clicked", "my team = " + myTeam);
                     if (myTeam == null)
                     {
+                        myTeam = new ArrayList<>();
                         myTeam.add(new Pokemon(k));
+                        Log.d("myTeam.add", "my team = " + myTeam);
                         UpdateData();
+                        Log.d("myTeam.updatedata", "my team = " + myTeam);
                     }
                     else if (myTeam.size() < 6)
                     {
